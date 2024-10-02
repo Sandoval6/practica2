@@ -10,12 +10,18 @@ function calcularPromedioDefecto(numeros) {
 
 // Versión corregida
 function calcularPromedioCorregido(numeros) {
-    if (numeros.length === 0) return 0; // Manejar el caso de array vacío entonces
-    let suma = 0;
-    for (let j = 0; j < numeros.length; j++) {
-        suma += numeros[j];
-    }
-    return suma / numeros.length;
+    // Validación de que sea un array y no esté vacío
+    if (!Array.isArray(numeros) || numeros.length === 0) return 0; // Retorna 0 si no es array o está vacío
+
+    // Filtrar valores no numéricos
+    let numerosValidos = numeros.filter(num => typeof num === 'number' && !isNaN(num));
+
+    if (numerosValidos.length === 0) return 0; // Retorna 0 si todos los valores eran inválidos
+
+    // Uso de reduce para sumar los valores válidos
+    let suma = numerosValidos.reduce((acc, num) => acc + num, 0);
+    
+    return suma / numerosValidos.length; // Calcula el promedio de los valores numéricos válidos
 }
 
 module.exports = { calcularPromedioDefecto, calcularPromedioCorregido };
