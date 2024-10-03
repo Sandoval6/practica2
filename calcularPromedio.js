@@ -11,7 +11,7 @@ function calcularPromedioDefecto(numeros) {
 // Versión corregida
 function calcularPromedioCorregido(numeros) {
     // Validación de que sea un array y no esté vacío
-    if (!Array.isArray(numero) || numeros.length === 0) return 0; // Retorna 0 si no es array o está vacío
+    if (!Array.isArray(numeros) || numeros.length === 0) return 0; // Retorna 0 si no es array o está vacío
 
     // Filtrar valores no numéricos
     let numerosValidos = numeros.filter(num => typeof num === 'number' && !isNaN(num));
