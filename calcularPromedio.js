@@ -3,7 +3,7 @@
 function calcularPromedioDefecto(numeros) {
     let suma = 0;
     for (let i = 0; i < numeros.length; i++) {
-        suma += numeros[i];
+        suma += numero[i];
     }
     return suma / numeros.length; // Defecto: División por cero si el array está vacío
 }
